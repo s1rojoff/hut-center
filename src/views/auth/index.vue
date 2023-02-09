@@ -1,17 +1,30 @@
 <script setup lang="ts">
+import {ref} from 'vue'
 import Logo from "@/components/icons/Logo.vue";
 import BaseInput from "../../components/BaseInput/index.vue";
 import BaseButton from "../../components/BaseButton/index.vue";
 const navItems = ["About", "Contact"];
+const sidebar = ref<boolean>(false)
 </script>
 
 <template>
   <div class="bg-[#EBFCF4] bg-image w-screen h-screen relative">
     <div class="flex pt-4 px-5 justify-between items-center xl:hidden">
       <Logo />
-      <div class="w-10">
+      <div class="w-10 cursor-pointer" @click="sidebar = !sidebar">
         <div class="bg-[#0B4654] rounded w-10 h-2"></div>
         <div class="bg-[#0B4654] rounded w-10 h-2 mt-1"></div>
+      </div>
+    </div>
+    <div class="px-5 block xl:hidden">
+      <div :class="{'-ml-[1500px]': !sidebar}" class="w-full transition flex rounded-lg mt-2 justify-start items-center h-10 bg-white">
+        <p
+          v-for="(item, index) in navItems"
+          class="font-medium ml-16 cursor-pointer text-xl text-[#0B4654]"
+          :key="index"
+        >
+          {{ item }}
+        </p>
       </div>
     </div>
     <div
