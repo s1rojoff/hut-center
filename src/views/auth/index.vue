@@ -29,6 +29,41 @@ const navItems = ["About", "Contact"];
           </p>
         </div>
       </div>
+      <div class="pt-10 xl:mt-32">
+        <div class="flex justify-center xl:-ml-10">
+          <div>
+            <p class="text-3xl font-semibold">Login</p>
+            <BaseInput
+              type="email"
+              class="mt-6"
+              inputClass="w-80 pr-2"
+              placeholder="Email address"
+            />
+            <br />
+            <BaseInput
+              type="password"
+              inputClass="w-80 pr-8"
+              placeholder="Password"
+            />
+            <div class="flex justify-start items-center mt-3">
+              <input
+                type="checkbox"
+                class="w-4 h-4 border-[#0B4654] outline-none rounded"
+              />
+              <p class="font-normal text-[text-[#7F7F7F] ml-2 text-xs">
+                I agree with
+                <span class="text-[#07B464] cursor-pointer">Terms</span> and
+                <span class="text-[#07B464] cursor-pointer">Privacy</span>
+              </p>
+            </div>
+            <BaseButton class="mt-10">SIGN IN</BaseButton>
+            <p class="text-base mt-4 font-medium text-[#7F7F7F]">
+              Forgotten your password?
+              <span class="text-[#07B464] cursor-pointer">Click here</span>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
