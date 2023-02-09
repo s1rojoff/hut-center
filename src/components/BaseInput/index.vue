@@ -42,7 +42,7 @@ const props = defineProps({
       :class="inputClass"
       :value="modelValue"
       @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
-      class="border px-8 h-10 placeholder:text-xs border-[#C2D0D4] outline-none rounded-md"
+      class="border pl-8 pr-2 h-10 placeholder:text-xs border-[#C2D0D4] outline-none rounded-md"
     />
     <Eye
       v-if="props.type == 'password'"
