@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref, useAttrs } from "vue";
 import type { PropType } from "vue";
-import Email from "../icons/Email.vue";
-import Eye from "../icons/Eye.vue";
-import EyeUnpublish from "../icons/EyeUnpublish.vue";
-import Lock from "../icons/Lock.vue";
+import Email from "../BaseIcon/icons/Email.vue";
+import Eye from "../BaseIcon/icons/Eye.vue";
+import EyeUnpublish from "../BaseIcon/icons/EyeUnpublish.vue";
+import Lock from "../BaseIcon/icons/Lock.vue";
 defineEmits(['update:modelValue'])
 const attrs = useAttrs()
 const props = defineProps({
