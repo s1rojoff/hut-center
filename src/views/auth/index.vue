@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {ref} from 'vue'
-import Logo from "@/components/icons/Logo.vue";
+import BaseIcon from "@/components/BaseIcon/index.vue";
 import BaseInput from "../../components/BaseInput/index.vue";
 import BaseButton from "../../components/BaseButton/index.vue";
 const navItems = ["About", "Contact"];
@@ -8,12 +8,12 @@ const sidebar = ref<boolean>(false)
 </script>
 
 <template>
-  <div class="bg-[#EBFCF4] bg-image w-screen h-screen relative">
+  <div class="bg-[#F9F5F1] bg-image w-screen h-screen relative">
     <div class="flex pt-4 px-5 justify-between items-center xl:hidden">
-      <Logo />
+      <BaseIcon class="w-36 -5 text-primary-900" name="Logo" />
       <div class="w-10 cursor-pointer" @click="sidebar = !sidebar">
-        <div class="bg-[#0B4654] rounded w-10 h-2"></div>
-        <div class="bg-[#0B4654] rounded w-10 h-2 mt-1"></div>
+        <div class="bg-[#FF7B54] rounded w-10 h-2"></div>
+        <div class="bg-[#FF7B54] rounded w-10 h-2 mt-1"></div>
       </div>
     </div>
     <div class="px-5 block xl:hidden">
@@ -32,7 +32,7 @@ const sidebar = ref<boolean>(false)
     >
       <div class="flex justify-center xl:opacity-100 xl:pt-7 opacity-0">
         <div class="flex justify-start items-center">
-          <Logo />
+          <BaseIcon class="w-32 h-5 text-primary-900" name="Logo" />
           <p
             v-for="(item, index) in navItems"
             class="font-medium ml-16 last:ml-12 cursor-pointer text-xl text-[#0B4654]"
@@ -69,7 +69,7 @@ const sidebar = ref<boolean>(false)
                 <span class="text-[#07B464] cursor-pointer">Privacy</span>
               </p>
             </div>
-            <BaseButton class="mt-10">SIGN IN</BaseButton>
+            <router-link to="/"><BaseButton class="mt-10">SIGN IN</BaseButton></router-link>
             <p class="text-base mt-4 font-medium text-[#7F7F7F]">
               Forgotten your password?
               <span class="text-[#07B464] cursor-pointer">Click here</span>
@@ -82,6 +82,6 @@ const sidebar = ref<boolean>(false)
 </template>
 <style scoped>
 .bg-image {
-  background-image: url("../../assets/images/bg-big.png");
+  background-image: url("/images/bg-big.png");
 }
 </style>

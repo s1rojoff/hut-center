@@ -4,7 +4,7 @@
 </template>
 <style scoped>
 .bnt {
-  background: #07b464;
+  background: #FF7B54;
   box-shadow: 0px 2.9566px 2.9566px rgba(0, 0, 0, 0.25),
     inset 0px 1.4783px 2.9566px rgba(255, 255, 255, 0.25),
     inset 0px -1.4783px 2.9566px rgba(0, 0, 0, 0.25);
