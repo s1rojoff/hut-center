@@ -29,7 +29,7 @@ const items = [
   {
     icon: "Logout",
     name: "Log out",
-    route: "logout",
+    route: "login",
   },
 ];
 </script>
