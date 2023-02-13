@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import {ref} from 'vue'
 import BaseIcon from "@/components/BaseIcon/index.vue";
-import BaseInput from "../../components/BaseInput/index.vue";
-import BaseButton from "../../components/BaseButton/index.vue";
+import BaseInput from "@/components/BaseInput/index.vue";
+import BaseButton from "@/components/BaseButton/index.vue";
 const navItems = ["About", "Contact"];
 const sidebar = ref<boolean>(false)
 </script>
