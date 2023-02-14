@@ -1,37 +1,46 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import BaseIcon from "@/components/BaseIcon/index.vue";
+import { RouterLink, RouterView } from "vue-router";
+const selectedItem = ref<any>()
 const items = [
-  {
+  { id: 1,
     icon: "Dashboard",
     name: "Dashboard",
     route: "/dashboard",
   },
   {
+    id: 2,
     icon: "Schedule",
     name: "Schedule",
     route: "/schedule",
   },
-  {
+  { id:3,
     icon: "Homework",
     name: "Homework",
     route: "homework",
   },
-  {
+  { id: 4,
     icon: "Teacher",
     name: "Teacher",
     route: "teacher",
   },
   {
+    id: 5,
     icon: "Messages",
     name: "Message",
     route: "message",
   },
   {
+    id:6,
     icon: "Logout",
     name: "Log out",
     route: "login",
   },
 ];
+function clickItem(item:any){
+  selectedItem.value = item
+}
 </script>
 <template>
   <div class="relative flex min-h-screen">
@@ -73,10 +82,10 @@ const items = [
       </div>
       <div>
         <div class="py-5 px-7">
-          <router-link v-for="(item, index) in items" :to="item.route">
+          <router-link @click="clickItem(item.route)" v-for="(item, index) in items" :to="item.route">
             <div class="flex cursor-pointer item items-center mt-6 first:mt-5">
               <BaseIcon class="w-5 text-blue-700 h-5 icon" :name="item.icon" />
-              <p class="text-base ml-3 item-nav font-medium">{{ item.name }}</p>
+              <p :class="{'active-link': item.route === selectedItem}" class="text-base ml-3 item-nav font-medium">{{ item.name }}</p>
             </div>
           </router-link>
         </div>
@@ -90,6 +99,9 @@ const items = [
 </template>
 <style scoped>
 .item:hover .item-nav {
+  color: #ee6c4d;
+}
+.active-link{
   color: #ee6c4d;
 }
 </style>

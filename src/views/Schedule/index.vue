@@ -20,7 +20,7 @@ const options = reactive<any>({
 
 <template>
   <div class="h-screen overflow-y-scroll w-full p-2">
-    <FullCalendar :options="options" themeSystem="Journal" />
+    <FullCalendar :options="options"/>
   </div>
 </template>
 <style scoped>
