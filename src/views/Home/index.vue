@@ -83,7 +83,7 @@ const items = [
       </div>
     </div>
     <!-- main content -->
-    <div class="w-4/5 bg-[#F5F7FB] h-screen overflow-y-scroll">
+    <div class="w-4/5 bg-[#F5F7FB]">
       <router-view></router-view>
     </div>
   </div>

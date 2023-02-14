@@ -1,45 +1,37 @@
 <script setup lang="ts">
 import BaseIcon from "@/components/BaseIcon/index.vue";
+import type { PropType } from "vue";
 const props = defineProps({
   cardData: {
-    type: Object,
+    type: Object as PropType<any>,
     default: {},
     required: true,
   },
 });
 </script>
 
-
-<template >
-  <div>
-    <div
-      class="
-      
-        wrapper
-        px-14
-        bg-white
-        rounded-2xl
-        gap-1
-        text-black
-        pt-5
-        pb-8
-        shadow-md
-      "
-    >
-      <img src="/images/user.png" alt="" class="mx-auto" />
-      <h1 class="text-center text-3xl text-[#333333]">Shermat xolmatov</h1>
-      <p class="text-center text-base text-[#706B6B]">Teacher</p>
-      <p
-        class="number text-center text-base text-[#706B6B] mt-4 cursor-pointer flex justify-center gap-0.5"
-      >
-      <BaseIcon class="w-5 h-5 text-prmary-900" name="Telephone"/>
-        +998990651701
-      </p>
-      <p class="text-center text-[15px] text-[#706B6B] cursor-pointer flex justify-center gap-0.5 ">
-        <BaseIcon class="w-5 h-5 text-prmary-900" name="Email"/>
-         info@onic.desing
-      </p>
+<template>
+  <div class="bg-white px-8 py-5 rounded-3xl">
+    <img src="/images/user.png" class="mx-auto" alt="" />
+    <p class="text-xl font-medium text-center mt-2 text-[#333333]">
+      Shermorad Holmatov
+    </p>
+    <p class="font-medium text-center text-base text-[#706B6B]">Teacher</p>
+    <div class="flex justify-center mt-4">
+      <div class="flex text-center items-center">
+        <BaseIcon class="w-5 h-5" name="Telephone" />
+        <p class="text-base flex items-center font-medium text-[#706B6B] ml-1">
+          0760707070
+        </p>
+      </div>
+    </div>
+    <div class="flex justify-center mt-4">
+      <div class="flex text-center items-center">
+        <BaseIcon class="w-5 h-5 text-[#979797]" name="Email" />
+        <p class="text-base flex items-center font-medium text-[#706B6B] ml-1">
+          info@onic.design
+        </p>
+      </div>
     </div>
   </div>
 </template>
-  

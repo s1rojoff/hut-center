@@ -11,27 +11,26 @@ const options = reactive<any>({
   plugins: [dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin],
   headerToolbar: {
     left: "prev,today,next",
-    center: 'title',
-    right: "dayGridDay,dayGridMonth,dayGridWeek,dayGridYear",
+    center: "title",
+    right: "timeGridDay,dayGridMonth,dayGridWeek,dayGridYear",
   },
-    initialView: 'dayGridMonth'
+  initialView: "dayGridMonth",
 });
 </script>
 
 <template>
-  <div class="h-screen w-full p-2 overflow-y-scroll">
-    <FullCalendar :options="options" />
+  <div class="h-screen overflow-y-scroll w-full p-2">
+    <FullCalendar :options="options" themeSystem="Journal" />
   </div>
 </template>
-<style>
-.fc-button{
+<style scoped>
+.fc-button {
   background-color: transparent !important;
   border: none !important;
   border-radius: 20px !important;
-  color: black!important;
+  color: black !important;
 }
-.fc-button:focus{
-    background-color: #EE6C4D !important;
-
+.fc-button:focus {
+  background-color: #ee6c4d !important;
 }
 </style>
