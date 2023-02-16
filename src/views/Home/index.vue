@@ -4,35 +4,32 @@ import BaseIcon from "@/components/BaseIcon/index.vue";
 import { RouterLink, RouterView } from "vue-router";
 const selectedItem = ref<any>()
 const items = [
-  { id: 1,
+  {
     icon: "Dashboard",
     name: "Dashboard",
     route: "/dashboard",
   },
   {
-    id: 2,
     icon: "Schedule",
     name: "Schedule",
     route: "/schedule",
   },
-  { id:3,
+  {
     icon: "Homework",
     name: "Homework",
     route: "homework",
   },
-  { id: 4,
+  {
     icon: "Teacher",
     name: "Teacher",
     route: "teacher",
   },
   {
-    id: 5,
     icon: "Messages",
     name: "Message",
     route: "message",
   },
   {
-    id:6,
     icon: "Logout",
     name: "Log out",
     route: "login",
@@ -92,8 +89,8 @@ function clickItem(item:any){
       </div>
     </div>
     <!-- main content -->
-    <div class="w-4/5 bg-[#F5F7FB]">
-      <router-view></router-view>
+    <div class="w-4/5 ">
+     <router-view></router-view>
     </div>
   </div>
 </template>

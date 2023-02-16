@@ -92,7 +92,7 @@ const bigData = [
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 .scrollbar::-webkit-scrollbar {
   display: none;
 }
