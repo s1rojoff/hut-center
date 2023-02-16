@@ -42,7 +42,7 @@ function clickItem(item:any){
 <template>
   <div class="relative flex min-h-screen">
     <!-- sidebar -->
-    <div class="w-1/5 bg-[#F9F5F1]">
+    <div class="hidden xl:block w-1/5 bg-[#F9F5F1]">
       <div class="bg-[#F6CFC6] py-5 px-7">
         <div class="flex justify-between items-center">
           <img
@@ -89,7 +89,7 @@ function clickItem(item:any){
       </div>
     </div>
     <!-- main content -->
-    <div class="w-4/5 ">
+    <div class="w-full xl:h-screen h-full xl:overflow-y-scroll  xl:w-4/5 ">
      <router-view></router-view>
     </div>
   </div>

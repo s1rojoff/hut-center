@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, ref } from "vue";
+import { reactive, ref, onMounted } from "vue";
 import "@fullcalendar/core";
 import FullCalendar from "@fullcalendar/vue3";
 import dayGridPlugin from "@fullcalendar/daygrid";
@@ -9,13 +9,14 @@ import interactionPlugin from "@fullcalendar/interaction";
 import { useStore } from "@/stores/mainStore";
 const store = useStore();
 const id = ref<number>(0);
+const isMobile = ref<boolean>(false);
 const options = reactive<any>({
   plugins: [dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin],
-  headerToolbar: {
-    left: "prev,today,next",
-    center: "title",
-    right: "timeGridDay,dayGridMonth,dayGridWeek,dayGridYear",
-  },
+  headerToolbar: getHeaderToolbar(),
+  aspectRatio: 5,
+  height: "auto",
+  contentHeight: "",
+  selectable: true,
   initialView: "dayGridMonth",
   locale: "sv",
   buttonText: {
@@ -25,15 +26,9 @@ const options = reactive<any>({
     day: "dag",
     year: "år",
   },
-  selectable: true,
   editable: true,
   weekends: true,
-  // dateClick:(arg:any)=>{
-  //     console.log(arg.dateStr);   yacheykaga click boganda
-  // }
-
   select: (arg: any) => {
-    // console.log(arg.start + arg.end);
     id.value += 1;
     const cal = arg.view.calendar;
     cal.unselect();
@@ -49,11 +44,36 @@ const options = reactive<any>({
     console.log(arg.event.title);
   },
 });
+onMounted(() => {
+  window.addEventListener("resize", checkMobile);
+  checkMobile();
+});
+
+function checkMobile() {
+  isMobile.value = window.innerWidth < 768;
+  options.headerToolbar = getHeaderToolbar();
+}
+
+function getHeaderToolbar(): any {
+  if (isMobile.value) {
+    return {
+      start: "prev",
+      center: "title",
+      end: "next",
+    };
+  }else{
+    return{
+      start: 'prev,today,next',
+      center: 'title',
+      end: 'timeGridDay,dayGridMonth,dayGridWeek,dayGridYear'
+    }
+  }
+}
 </script>
 
 <template>
   <!-- <BaseModal v-if="store.$state.openModal"/> -->
-  <div class="h-screen overflow-y-scroll w-full p-2">
+  <div class="p-2">
     <FullCalendar :options="options" />
   </div>
 </template>
