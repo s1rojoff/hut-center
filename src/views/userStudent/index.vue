@@ -2,27 +2,18 @@
 import { ref } from "vue";
 import BaseIcon from "@/components/BaseIcon/index.vue";
 import { RouterLink, RouterView } from "vue-router";
-const selectedItem = ref<any>()
+import MobileBar from "@/views/userStudent/MobileBar.vue";
+const selectedItem = ref<any>();
 const items = [
-  {
-    icon: "Dashboard",
-    name: "Dashboard",
-    route: "/dashboard",
-  },
   {
     icon: "Schedule",
     name: "Schedule",
-    route: "/schedule",
+    route: "schedule",
   },
   {
     icon: "Homework",
     name: "Homework",
     route: "homework",
-  },
-  {
-    icon: "Teacher",
-    name: "Teacher",
-    route: "teacher",
   },
   {
     icon: "Messages",
@@ -32,17 +23,17 @@ const items = [
   {
     icon: "Logout",
     name: "Log out",
-    route: "login",
+    route: "/",
   },
 ];
-function clickItem(item:any){
-  selectedItem.value = item
+function clickItem(item: any) {
+  selectedItem.value = item;
 }
 </script>
 <template>
   <div class="relative flex min-h-screen">
     <!-- sidebar -->
-    <div class="hidden xl:block w-1/5 bg-[#F9F5F1]">
+    <div class="hidden xl:block xl:w-1/5 bg-[#F9F5F1]">
       <div class="bg-[#F6CFC6] py-5 px-7">
         <div class="flex justify-between items-center">
           <img
@@ -79,18 +70,32 @@ function clickItem(item:any){
       </div>
       <div>
         <div class="py-5 px-7">
-          <router-link @click="clickItem(item.route)" v-for="(item, index) in items" :to="item.route">
-            <div class="flex cursor-pointer item items-center mt-6 first:mt-5">
-              <BaseIcon class="w-5 text-blue-700 h-5 icon" :name="item.icon" />
-              <p :class="{'active-link': item.route === selectedItem}" class="text-base ml-3 item-nav font-medium">{{ item.name }}</p>
+          <router-link
+            @click="clickItem(item.route)"
+            v-for="(item, index) in items"
+            :to="item.route == '/' ? '/' : '/student/'+ item.route"
+          >
+            <div :class="{'mt-0 ': index==0}" class="flex cursor-pointer item items-center mt-3.5">
+              <BaseIcon class="w-5 text-slate-700 h-5 icon" :name="item.icon" />
+              <p
+                :class="{ 'active-link': item.route === selectedItem }"
+                class="text-base ml-3 item-nav font-medium"
+              >
+                {{ item.name }}
+              </p>
             </div>
           </router-link>
         </div>
       </div>
     </div>
     <!-- main content -->
-    <div class="w-full xl:h-screen h-full xl:overflow-y-scroll  xl:w-4/5 ">
-     <router-view></router-view>
+    <div class="xl:w-4/5 bg-[#F5F7FB] w-full relative h-full">
+      <div
+        class="h-screen xl:overflow-y-scroll"
+      >
+        <router-view></router-view>
+      </div>
+      <MobileBar class="block md:hidden z-50 bottom-0 absolute" :items="items"/>
     </div>
   </div>
 </template>
@@ -98,7 +103,7 @@ function clickItem(item:any){
 .item:hover .item-nav {
   color: #ee6c4d;
 }
-.active-link{
+.active-link {
   color: #ee6c4d;
 }
 </style>
