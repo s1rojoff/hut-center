@@ -1,10 +1,41 @@
 <script setup lang="ts">
-import {ref} from 'vue'
+import { ref } from "vue";
+import { storeToRefs } from 'pinia'
 import BaseIcon from "@/components/BaseIcon/index.vue";
 import BaseInput from "@/components/BaseInput/index.vue";
 import BaseButton from "@/components/BaseButton/index.vue";
+import { useStore } from "@/stores/auth/index";
+import { useHelper } from "@/Helpers";
+const {toSection} = useHelper()
+const store: any = useStore();
 const navItems = ["About", "Contact"];
-const sidebar = ref<boolean>(false)
+const sidebar = ref<boolean>(false);
+const {user} = storeToRefs(store)
+const route = ref<string>("");
+function getUser(): void {
+  if (
+    user.value.email == "admin" &&
+    user.value.password == "111"
+  ) {
+    route.value = "admin";
+  } 
+  else if (
+    user.value.email == "student" &&
+    user.value.password == "222"
+  ) {
+    route.value = "student";
+  } 
+  else if (
+    user.value.email == "teacher" &&
+    user.value.password == "333"
+  ) {
+    route.value = "teacher";
+  } 
+  else {
+    route.value = "/";
+  }
+  toSection(route.value)  
+}
 </script>
 
 <template>
@@ -17,7 +48,10 @@ const sidebar = ref<boolean>(false)
       </div>
     </div>
     <div class="px-5 block xl:hidden">
-      <div :class="{'-ml-[1500px]': !sidebar}" class="w-full transition flex rounded-lg mt-2 justify-start items-center h-10 bg-white">
+      <div
+        :class="{ '-ml-[1500px]': !sidebar }"
+        class="w-full transition flex rounded-lg mt-2 justify-start items-center h-10 bg-white"
+      >
         <p
           v-for="(item, index) in navItems"
           class="font-medium ml-16 cursor-pointer text-xl text-[#0B4654]"
@@ -51,12 +85,14 @@ const sidebar = ref<boolean>(false)
               class="mt-6"
               inputClass="w-80 pr-2"
               placeholder="Email address"
+              v-model="user.email"
             />
             <br />
             <BaseInput
-              type="password"
-              inputClass="w-80 pr-8"
-              placeholder="Password"
+              type="email"
+              inputClass="w-80 pr-2"
+              placeholder="Email address"
+              v-model="user.password"
             />
             <div class="flex justify-start items-center mt-3">
               <input
@@ -69,7 +105,7 @@ const sidebar = ref<boolean>(false)
                 <span class="text-[#07B464] cursor-pointer">Privacy</span>
               </p>
             </div>
-            <router-link to="/"><BaseButton class="mt-10">SIGN IN</BaseButton></router-link>
+              <BaseButton @click="getUser" class="uppercase mt-10">sign in</BaseButton>
             <p class="text-base mt-4 font-medium text-[#7F7F7F]">
               Forgotten your password?
               <span class="text-[#07B464] cursor-pointer">Click here</span>

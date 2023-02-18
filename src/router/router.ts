@@ -1,50 +1,64 @@
 export const routers = [
   {
-    path: "/",
-    name: "Home",
-    component: () => import("@/views/Home/index.vue"),
-    children: [
-      {
-        path: "dashboard",
-        name: "Dashboard",
-        meta: { name: "Dashboard" },
-        component: () => import("@/views/Dashboard/index.vue"),
-      },
+    path: "/student",
+    name: "Students",
+    component: () => import("@/views/userStudent/index.vue"),
+    children:  [
       {
         path: "schedule",
-        name: "Schedule",
-        meta: { name: "Schedule" },
-        component: () => import("@/views/Schedule/index.vue"),
+        name: "Student Schedule",
+        component: () => import("@/views/userStudent/Schedule/index.vue"),
       },
       {
         path: "homework",
-        name: "Homework",
-        meta: { name: "Homework" },
-        component: () => import("@/views/Homework/index.vue"),
-      },
-      {
-        path: "teacher",
-        name: "Teacher",
-        meta: { name: "Teacher" },
-        component: () => import("@/views/Teacher/index.vue"),
+        name: "Student Homework",
+        component: () => import("@/views/userStudent/Homework/index.vue"),
       },
       {
         path: "message",
-        name: "Message",
-        meta: { name: "Message" },
-        component: () => import("@/views/Message/index.vue"),
-      },
-      {
-        path: "logout",
-        name: "Logout",
-        meta: { name: "Logout" },
-        component: () => import("@/views/Logout/index.vue"),
+        name: "Student Message",
+        component: () => import("@/views/userStudent/Message/index.vue"),
       },
     ],
   },
   {
-    path: "/login",
+    path: "/admin",
+    name: "Admin",
+    component: () => import("@/views/userAdmin/index.vue"),
+    children: [
+      {
+        path: "schedule",
+        name: "Admin Schedule",
+        component: () => import("@/views/userAdmin/Schedule/index.vue"),
+      },
+      {
+        path: "class",
+        name: "Admin Class",
+        component: () => import("@/views/userAdmin/Classes/index.vue"),
+      },
+      {
+        path: "teacher",
+        name: "Admin Teacher",
+        component: () => import("@/views/userAdmin/Teacher/index.vue"),
+      },
+      {
+        path: "student",
+        name: "Admin Student",
+        component: () => import("@/views/userAdmin/Students/index.vue"),
+      },
+      {
+        path: "location",
+        name: "Admin Location",
+        component: () => import("@/views/userAdmin/Location/index.vue"),
+      },
+    ],
+  },
+  {
+    path: "/",
     name: "Login",
     component: () => import("@/views/auth/index.vue"),
-  }
+    meta:{
+      public: true
+    }
+  },
 ];
