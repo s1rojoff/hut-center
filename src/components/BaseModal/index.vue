@@ -44,15 +44,6 @@ import BaseIcon from "@/components/BaseIcon/index.vue";
           <p class="text-base font-medium text-white ml-2">14 Students</p>
         </div>
       </div>
-      <div class="flex mt-10">
-        <select class="outline-none rounded py-1 pl-3 pr-20">
-          <option value="">Report Absence</option>
-          <option value="">Report Absence</option>
-          <option value="">Report Absence</option>
-          <option value="">Report Absence</option>
-        </select>
-        <button class="py-1 px-3 ml-4 rounded bg-white">Send Report</button>
-      </div>
     </dvi>
   </div>
 </template>
