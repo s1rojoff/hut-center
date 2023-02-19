@@ -90,7 +90,7 @@ function clickItem(item: any) {
       </div>
     </div>
     <!-- main content -->
-    <div class="w-4/5 bg-[#F5F7FB]">
+    <div class="w-4/5 bg-[#F5F7FB] overflow-y-scroll">
         <router-view></router-view>
     </div>
   </div>
