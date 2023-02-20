@@ -5,7 +5,8 @@ export const useStore = defineStore('store', {
     return {
       openModal: false,
       modal_teacher: false,
-      modal_class: false
+      modal_class: false,
+      modal_student: false,
     }
   },
 })

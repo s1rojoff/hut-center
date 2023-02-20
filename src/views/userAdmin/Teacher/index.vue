@@ -20,7 +20,7 @@ function handleFileUpload(event: any) {
 }
 </script>
 <template>
-  <div class="px-8 pb-5 h-screen">
+  <div class="px-8 pb-5">
     <div class="flex items-center justify-between">
       <p class="text-4xl text-[#5F5F5F] font-medium mt-16 pb-10">
         Responsible staff and teachers
