@@ -86,7 +86,7 @@ const smallData = [
   },
 ];
 function toggleModal() {
-  store.modal_teacher = !store.modal_teacher
+  store.modal_class = !store.modal_class
 }
 </script>
 <template>
@@ -99,10 +99,10 @@ function toggleModal() {
       <BaseClass v-for="item in smallData" :card-data="item" />
     </div>
   </div>
-  <div class="w-full top-0 absolute h-full" v-if="store.modal_teacher">
-    <AdminModal @closeModal="toggleModal">
+  <div class="w-full top-0 absolute h-full" v-if="store.modal_class">
+    <AdminModal top="top-2.5" @closeModal="toggleModal">
       <div class="flex items-center justify-between">
-        <p class="font-medium text-3xl text-black">Create Teacher</p>
+        <p class="font-medium text-3xl text-black">Create Class</p>
         <BaseIcon
           @click="toggleModal"
           class="w-4 h-4 cursor-pointer text-black"
